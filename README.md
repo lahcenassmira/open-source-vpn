@@ -9,7 +9,7 @@
 
 A secure, high-performance VPN system written in Go with modern cryptography and clean architecture.
 
-**🎯 Perfect for Moroccan TPE/PME (Small & Medium Businesses)**
+** Perfect for Moroccan TPE/PME (Small & Medium Businesses)**
 
 ---
 
@@ -18,17 +18,17 @@ A secure, high-performance VPN system written in Go with modern cryptography and
 ### Pour les Entreprises Marocaines / For Moroccan Businesses
 
 Ce VPN open-source est **idéal pour**:
-- 🏢 **TPE/PME** - Petites et moyennes entreprises
-- 🔐 **Sécurité** - Protection des données sensibles
-- 💰 **Économique** - Solution gratuite et open-source
-- 🌍 **Télétravail** - Accès sécurisé pour employés distants
+-  **TPE/PME** - Petites et moyennes entreprises
+-  **Sécurité** - Protection des données sensibles
+-  **Économique** - Solution gratuite et open-source
+-  **Télétravail** - Accès sécurisé pour employés distants
 - 🇲🇦 **Local** - Développé avec les besoins marocains en tête
 
 This open-source VPN is **perfect for**:
-- 🏢 **Small & Medium Businesses** - TPE/PME
-- 🔐 **Security** - Protect sensitive business data
-- 💰 **Cost-Effective** - Free and open-source solution
-- 🌍 **Remote Work** - Secure access for remote employees
+-  **Small & Medium Businesses** - TPE/PME
+-  **Security** - Protect sensitive business data
+-  **Cost-Effective** - Free and open-source solution
+-  **Remote Work** - Secure access for remote employees
 - 🇲🇦 **Local** - Built with Moroccan needs in mind
 
 ### 🎓 Use Cases / Cas d'Usage
@@ -49,12 +49,12 @@ This open-source VPN is **perfect for**:
 ### 🛡️ This Project is Designed For:
 
 ✅ **Legitimate Use Only:**
-- 🔐 Secure business communications
-- 🏢 Private corporate networks
-- 🎓 Educational and research purposes
-- 🔒 Protecting sensitive data on untrusted networks
-- 🌐 Secure remote access to private resources
-- 💼 Professional VPN deployments
+-  Secure business communications
+-  Private corporate networks
+-  Educational and research purposes
+-  Protecting sensitive data on untrusted networks
+-  Secure remote access to private resources
+-  Professional VPN deployments
 
 ### 🚫 STRICTLY PROHIBITED:
 
