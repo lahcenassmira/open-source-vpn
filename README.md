@@ -33,12 +33,12 @@ This open-source VPN is **perfect for**:
 
 ### 🎓 Use Cases / Cas d'Usage
 
-✅ **Personal VPN Usage** - Protection personnelle
-✅ **Corporate Deployments** - Déploiements d'entreprise
-✅ **Educational Purposes** - Objectifs éducatifs
-✅ **Learning Go & Cryptography** - Apprendre Go et la cryptographie
-✅ **Building Custom VPN Solutions** - Solutions VPN personnalisées
-✅ **Open-Source Contributions** - Contributions open-source
+ - ✅ **Personal VPN Usage** - Protection personnelle
+ - ✅ **Corporate Deployments** - Déploiements d'entreprise
+ - ✅ **Educational Purposes** - Objectifs éducatifs
+ - ✅ **Learning Go & Cryptography** - Apprendre Go et la cryptographie
+ - ✅ **Building Custom VPN Solutions** - Solutions VPN personnalisées
+ - ✅ **Open-Source Contributions** - Contributions open-source
 
 ---
 
