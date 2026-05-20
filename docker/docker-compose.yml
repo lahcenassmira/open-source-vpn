@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  vpn-server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: open-source-vpn-server
+    image: open-source-vpn-server:latest
+    
+    # Required for TUN device
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    
+    # Access to TUN device
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    
+    # Network mode
+    network_mode: host
+    
+    # Volumes
+    volumes:
+      - ../configs:/etc/vpn:ro
+      - vpn-logs:/var/log
+    
+    # Environment variables
+    environment:
+      - TZ=UTC
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  vpn-logs:
+    driver: local

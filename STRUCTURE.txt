@@ -1,0 +1,189 @@
+open-source-vpn Project Structure
+===========================
+
+open-source-vpn/
+│
+├── cmd/                                    # Command-line applications
+│   ├── server/                            # VPN Server
+│   │   ├── main.go                        # Server CLI entry point
+│   │   └── server.go                      # Server implementation
+│   └── client/                            # VPN Client
+│       ├── main.go                        # Client CLI entry point
+│       └── client.go                      # Client implementation
+│
+├── internal/                              # Private application code
+│   ├── crypto/                            # Cryptography module
+│   │   ├── keys.go                        # X25519 key management
+│   │   ├── cipher.go                      # ChaCha20-Poly1305 encryption
+│   │   ├── noise.go                       # Noise protocol handshake
+│   │   └── keys_test.go                   # Crypto unit tests
+│   │
+│   ├── tunnel/                            # TUN device management
+│   │   └── tun.go                         # TUN interface operations
+│   │
+│   ├── network/                           # Networking layer
+│   │   ├── packet.go                      # Packet parsing/serialization
+│   │   └── router.go                      # Routing and NAT management
+│   │
+│   ├── protocol/                          # VPN protocol
+│   │   └── connection.go                  # Connection state management
+│   │
+│   └── config/                            # Configuration management
+│       └── config.go                      # Config parsing and validation
+│
+├── pkg/                                   # Public libraries
+│   ├── logger/                            # Logging package
+│   │   └── logger.go                      # Structured logger (Zap)
+│   │
+│   └── metrics/                           # Metrics package
+│       └── metrics.go                     # Performance metrics tracking
+│
+├── configs/                               # Configuration examples
+│   ├── server.example.yaml                # Server config template
+│   └── client.example.yaml                # Client config template
+│
+├── docker/                                # Docker deployment
+│   ├── Dockerfile                         # Server container image
+│   └── docker-compose.yml                 # Docker Compose config
+│
+├── docs/                                  # Documentation
+│   ├── ARCHITECTURE.md                    # Architecture details
+│   └── SETUP.md                           # Setup and installation guide
+│
+├── scripts/                               # Utility scripts
+│   └── setup.sh                           # Automated setup script
+│
+├── README.md                              # Main project documentation
+├── QUICKSTART.md                          # Quick start guide
+├── PROJECT_SUMMARY.md                     # Project overview
+├── CONTRIBUTING.md                        # Contribution guidelines
+├── LICENSE                                # MIT License
+├── STRUCTURE.txt                          # This file
+├── .gitignore                             # Git ignore rules
+├── Makefile                               # Build automation
+├── go.mod                                 # Go module definition
+└── go.sum                                 # Dependency checksums
+
+
+Component Overview
+==================
+
+┌─────────────────────────────────────────────────────────────────┐
+│                         Application Layer                        │
+├─────────────────────────────────────────────────────────────────┤
+│  cmd/server/  │  cmd/client/  │  CLI Tools & Entry Points       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         Protocol Layer                           │
+├─────────────────────────────────────────────────────────────────┤
+│  internal/protocol/  │  Connection Management & State           │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         Crypto Layer                             │
+├─────────────────────────────────────────────────────────────────┤
+│  internal/crypto/  │  Encryption, Keys, Handshake               │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         Network Layer                            │
+├─────────────────────────────────────────────────────────────────┤
+│  internal/network/  │  Routing, Packets, NAT                    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         Tunnel Layer                             │
+├─────────────────────────────────────────────────────────────────┤
+│  internal/tunnel/  │  TUN Device Interface                      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      Operating System                            │
+├─────────────────────────────────────────────────────────────────┤
+│  Linux/macOS  │  Kernel, Network Stack, TUN/TAP                │
+└─────────────────────────────────────────────────────────────────┘
+
+
+Supporting Components
+=====================
+
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│   Logger     │  │   Metrics    │  │   Config     │
+│ pkg/logger/  │  │ pkg/metrics/ │  │internal/config│
+└──────────────┘  └──────────────┘  └──────────────┘
+
+
+File Count Summary
+==================
+
+Total Files: 29
+
+By Category:
+- Source Code (Go):     15 files
+- Tests:                 1 file
+- Documentation:         7 files
+- Configuration:         4 files
+- Build/Deploy:          2 files
+
+By Directory:
+- cmd/                   4 files
+- internal/              9 files
+- pkg/                   2 files
+- configs/               2 files
+- docker/                2 files
+- docs/                  2 files
+- scripts/               1 file
+- Root:                  7 files
+
+
+Lines of Code (Estimated)
+==========================
+
+Component               Files    Lines    Purpose
+---------------------------------------------------------
+Crypto Module             3      ~600     Encryption & keys
+Tunnel Module             1      ~300     TUN device
+Network Module            2      ~500     Routing & packets
+Protocol Module           1      ~400     Connections
+Config Module             1      ~300     Configuration
+Logger Module             1      ~200     Logging
+Metrics Module            1      ~200     Metrics
+Server Implementation     2      ~600     Server logic
+Client Implementation     2      ~500     Client logic
+Tests                     1      ~200     Unit tests
+---------------------------------------------------------
+Total                    15     ~3800     Production code
+
+
+Key Technologies
+================
+
+Language:       Go 1.21+
+Crypto:         ChaCha20-Poly1305, X25519, Noise Protocol
+Networking:     TUN/TAP, UDP, IPv4/IPv6
+Logging:        Zap (structured logging)
+Config:         YAML
+CLI:            Cobra
+Build:          Make
+Deploy:         Docker, systemd
+Testing:        Go testing framework
+
+
+Getting Started
+===============
+
+1. Build:       make build
+2. Test:        make test
+3. Server:      sudo ./bin/vpn-server start --config server.yaml
+4. Client:      sudo ./bin/vpn-client connect --config client.yaml
+
+For detailed instructions, see:
+- QUICKSTART.md     - Quick start guide
+- docs/SETUP.md     - Full setup guide
+- README.md         - Complete documentation

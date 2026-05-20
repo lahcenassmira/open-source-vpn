@@ -1,0 +1,41 @@
+server:
+  listen_address: "0.0.0.0:51820"
+  protocol: "udp"
+  workers: 4
+
+network:
+  interface: "tun0"
+  address: "10.8.0.1/24"
+  mtu: 1420
+
+crypto:
+  # Generate with: vpn-server keygen
+  private_key: "YOUR_SERVER_PRIVATE_KEY_HERE"
+
+clients:
+  - public_key: "CLIENT1_PUBLIC_KEY_HERE"
+    allowed_ips:
+      - "10.8.0.2/32"
+    name: "client1"
+  
+  - public_key: "CLIENT2_PUBLIC_KEY_HERE"
+    allowed_ips:
+      - "10.8.0.3/32"
+    name: "client2"
+
+routing:
+  forward_all_traffic: false
+  allowed_networks:
+    - "10.8.0.0/24"
+    - "192.168.1.0/24"
+
+dns:
+  enabled: true
+  servers:
+    - "8.8.8.8"
+    - "8.8.4.4"
+
+logging:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json or console
+  output: "/var/log/vpn-server.log"  # or stdout/stderr

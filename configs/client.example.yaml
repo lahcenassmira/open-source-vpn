@@ -1,0 +1,30 @@
+client:
+  server_address: "vpn.example.com:51820"
+  protocol: "udp"
+  reconnect_delay: 5
+
+network:
+  interface: "tun0"
+  address: "10.8.0.2/24"
+  mtu: 1420
+
+crypto:
+  # Generate with: vpn-client keygen
+  private_key: "YOUR_CLIENT_PRIVATE_KEY_HERE"
+  server_public_key: "SERVER_PUBLIC_KEY_HERE"
+
+routing:
+  default_route: false
+  routes:
+    - "10.8.0.0/24"
+    - "192.168.1.0/24"
+
+dns:
+  enabled: true
+  servers:
+    - "10.8.0.1"
+
+logging:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json or console
+  output: "stdout"  # or file path
